@@ -1,0 +1,3 @@
+/* Estilos específicos da página Meu Perfil. */
+#perfil .person { display:flex; align-items:center; gap:11px; }
+#perfil .av.big { width:75px; height:75px; min-width:75px; }

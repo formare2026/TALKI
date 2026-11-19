@@ -1,0 +1,74 @@
+
+<section class="page" id="espaco">
+
+  <div class="page-banner">
+    <img src="img/bannerEspaco.png" alt="Banner do TALKI">
+  </div>
+
+  <div class="social-layout">
+
+    <!-- Quem está no local -->
+    <div class="card pessoas-local">
+
+      <div class="row">
+        <h2 style="margin:0">
+          <i class="i" data-i="pin"></i>
+          Quem está no local <span class="tag" id="cnt"></span>
+        </h2>
+
+        <button class="btn" id="hbtn" onclick="toggleForm()"></button>
+      </div>
+
+      <div id="cform">
+        <label>Seu nome</label>
+        <input class="nm" placeholder="Digite seu nome" autocomplete="name">
+
+        <label>Idioma em que quero conversar</label>
+        <select id="clang">
+          <option>Inglês</option>
+          <option>Espanhol</option>
+          <option>Francês</option>
+          <option>Português</option>
+        </select>
+
+        <p class="err" id="cerr"></p>
+
+        <button class="btn" onclick="sendHere()">
+          <i class="i" data-i="send"></i>Enviar
+        </button>
+      </div>
+
+      <p class="small" style="margin-top:14px">
+        Pessoas presentes agora e o idioma em que desejam conversar.
+      </p>
+
+      <div class="grid" id="here"></div>
+
+    </div>
+
+    <!-- Cards de fotos -->
+    <div class="fotos-local">
+
+      <!-- Encontros trimestrais -->
+      <div class="ph encontros">
+        <img src="img/espaco-encontros.png" alt="Encontros trimestrais">
+        <div class="bd">
+          <i class="i" data-i="coffee"></i>
+          Encontros trimestrais, com coffee break
+        </div>
+      </div>
+
+      <!-- Dia a dia -->
+      <div class="ph dia-a-dia">
+        <img src="img/espaco-dia-a-dia.png" alt="Espaço de Socialização no dia a dia">
+        <div class="bd">
+          <i class="i" data-i="chat"></i>
+          Dia a dia
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

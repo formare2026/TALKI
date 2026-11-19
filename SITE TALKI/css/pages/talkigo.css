@@ -1,0 +1,41 @@
+/* Estilos específicos da página TalkiGO. */
+#talkigo .chips { display:flex; flex-wrap:wrap; gap:9px; }
+#talkigo .bar { overflow:hidden; }
+
+/* ORGANIZAÇÃO DOS FILTROS */
+
+#talkigo .talkigo-filters {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#talkigo .filter-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+#talkigo .filter-group label {
+    white-space: nowrap;
+    font-weight: 600;
+    margin: 0;
+}
+
+#talkigo .filter-group .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 650px) {
+    #talkigo .talkigo-filters {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

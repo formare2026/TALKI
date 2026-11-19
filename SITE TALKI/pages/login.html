@@ -1,0 +1,194 @@
+<section id="authScreen" aria-label="Acesso ao TALKI">
+
+    <!-- Banner de fundo: NÃO ALTERAR -->
+    <img
+        src="img/BANNERSLOGIN.png"
+        alt=""
+        class="auth-background"
+    >
+
+    <div class="auth-overlay"></div>
+
+    <!-- CARD DE LOGIN -->
+    <div class="auth-card">
+
+        <!-- LADO ESQUERDO: LOGO -->
+        <div class="auth-brand">
+
+    <h2 class="auth-brand-title">CONECTA-SE COM</h2>
+
+    <img
+        src="img/login.png"
+        alt="Logo TALKI"
+        class="auth-logo"
+    >
+
+</div>
+
+        <!-- DIVISÓRIA -->
+        <div class="auth-divider"></div>
+
+        <!-- LADO DIREITO: FORMULÁRIOS -->
+        <div class="auth-content">
+
+            <!-- LOGIN -->
+            <form id="loginForm" onsubmit="loginTalki(event)">
+
+                
+
+                <p class="auth-sub">
+                    Entre com seu e-mail e senha para acessar sua conta.
+                </p>
+
+                <label for="loginEmail">E-mail</label>
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="voce@email.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="loginPassword">Senha</label>
+
+                <div class="auth-password">
+
+                    <input
+                        id="loginPassword"
+                        type="password"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        class="auth-show"
+                        type="button"
+                        onclick="togglePassword('loginPassword',this)"
+                    >
+                        Mostrar
+                    </button>
+
+                </div>
+
+                <div class="auth-options">
+
+                    <label class="auth-remember">
+                        <input id="rememberTalki" type="checkbox">
+                        Manter conectado
+                    </label>
+
+                    <button
+                        class="auth-link"
+                        type="button"
+                        onclick="forgotTalki()"
+                    >
+                        Esqueci minha senha
+                    </button>
+
+                </div>
+
+                <p class="auth-error" id="loginError" aria-live="polite"></p>
+
+                <button class="auth-submit" type="submit">
+                    Entrar
+                </button>
+
+                <p class="auth-switch">
+                    Ainda não tem conta?
+                    <button type="button" onclick="showRegister()">
+                        Criar conta
+                    </button>
+                </p>
+
+            </form>
+
+            <!-- CADASTRO -->
+            <form
+                id="registerForm"
+                class="auth-hidden"
+                onsubmit="registerTalki(event)"
+            >
+
+                <h1>CRIE SUA CONTA</h1>
+
+                <p class="auth-sub">
+                    Faça parte do TALKI e comece a se conectar com o mundo.
+                </p>
+
+                <label for="registerName">Nome completo</label>
+
+                <input
+                    id="registerName"
+                    type="text"
+                    placeholder="Seu nome"
+                    autocomplete="name"
+                    required
+                >
+
+                <label for="registerEmail">E-mail</label>
+
+                <input
+                    id="registerEmail"
+                    type="email"
+                    placeholder="voce@email.com"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="registerPassword">Senha</label>
+
+                <div class="auth-password">
+
+                    <input
+                        id="registerPassword"
+                        type="password"
+                        placeholder="Crie uma senha (mín. 6 caracteres)"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                    <button
+                        class="auth-show"
+                        type="button"
+                        onclick="togglePassword('registerPassword',this)"
+                    >
+                        Mostrar
+                    </button>
+
+                </div>
+
+                <label for="registerConfirm">Confirmar senha</label>
+
+                <input
+                    id="registerConfirm"
+                    type="password"
+                    placeholder="Digite a senha novamente"
+                    autocomplete="new-password"
+                    required
+                >
+
+                <p class="auth-error" id="registerError" aria-live="polite"></p>
+
+                <button class="auth-submit" type="submit">
+                    Criar conta
+                </button>
+
+                <p class="auth-switch">
+                    Já tem uma conta?
+                    <button type="button" onclick="showLogin()">
+                        Entrar
+                    </button>
+                </p>
+
+            </form>
+
+            <p class="auth-back auth-hidden" id="authNote"></p>
+
+        </div>
+
+    </div>
+
+</section>

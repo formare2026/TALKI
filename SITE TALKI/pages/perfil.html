@@ -1,0 +1,36 @@
+<section class="page" id="perfil">
+
+    <h1>Meu Perfil</h1>
+    <p class="sub">Mantenha suas informações atualizadas.</p>
+
+    <div class="card" id="pform">
+
+      <div class="person" style="margin-bottom:6px">
+        <div class="av big" id="pav"><i class="i" data-i="user"></i></div>
+
+        <div>
+          <b>Foto de perfil</b><br>
+          <button class="btn alt" style="margin-top:6px" onclick="document.getElementById('pfoto').click()">
+            <i class="i" data-i="camera"></i>Alterar foto
+          </button>
+          <input type="file" id="pfoto" class="hidden-file" accept="image/*">
+        </div>
+      </div>
+
+      <label>Nome completo</label>
+      <input class="nm" id="pname" placeholder="Digite seu nome completo" autocomplete="name">
+
+      <label>Idiomas que falo e seu nível</label>
+      <div class="chips" id="pl"></div>
+
+      <label>Bio</label>
+      <textarea id="pbio" placeholder="Conte um pouco sobre você, seus interesses e o que quer praticar"></textarea>
+
+      <p class="err" id="perr"></p>
+      <button class="btn" onclick="saveP()"><i class="i" data-i="check"></i>Salvar perfil</button>
+
+    </div>
+
+    <div class="card pv" id="pview" style="display:none"></div>
+
+  </section>

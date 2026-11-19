@@ -1,0 +1,18 @@
+TALKI — estrutura organizada
+
+index.html              Arquivo principal e estrutura geral
+pages/login.html        Tela de login e cadastro
+pages/home.html         Página inicial
+pages/espaco.html       Espaço de Socialização
+pages/encontros.html    Página de Encontros
+pages/talkigo.html      Atividades do TalkiGO
+pages/perfil.html       Meu Perfil
+css/global.css          Folha de estilos original completa (mantida para preservar o visual)
+css/pages/              Arquivos CSS separados por página
+js/app.js               JavaScript principal do sistema
+img/                    Imagens utilizadas pelo site
+
+IMPORTANTE:
+Como as páginas agora são carregadas com fetch(), abra o projeto por um servidor local,
+como a extensão Live Server do VS Code. Não abra o index.html diretamente pelo arquivo
+(file://), pois o navegador pode bloquear o carregamento dos fragmentos.

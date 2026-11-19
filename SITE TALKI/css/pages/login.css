@@ -1,0 +1,102 @@
+/* AJUSTES DA TELA DE LOGIN */
+
+#authScreen {
+    isolation: isolate;
+}
+
+/* CARD PRINCIPAL (tamanho fixo, sem scroll nele) */
+#authScreen .auth-card {
+    width: min(1100px, 94vw);
+    height: min(650px, 90vh) !important;
+    min-height: 0 !important;
+    max-height: 90vh;
+
+    display: grid;
+    grid-template-columns: 1.15fr 2px 1fr;
+    grid-template-rows: minmax(0, 1fr); /* deixa a linha encolher para o scroll funcionar */
+
+    overflow: hidden !important;
+}
+
+/* LADO ESQUERDO - LOGO */
+#authScreen .auth-brand {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 45px;
+}
+
+/* DIVISÓRIA */
+#authScreen .auth-divider {
+    height: 100%;
+}
+
+/* LADO DIREITO - FORMULÁRIOS (AQUI ENTRA O SCROLL) */
+#authScreen .auth-content {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 35px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* scrollbar discreta */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(120, 160, 255, 0.5) transparent;
+}
+
+#authScreen .auth-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#authScreen .auth-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#authScreen .auth-content::-webkit-scrollbar-thumb {
+    background: rgba(120, 160, 255, 0.5);
+    border-radius: 10px;
+}
+
+/* ADAPTAÇÃO PARA TELAS MENORES */
+@media (max-width: 750px) {
+    #authScreen .auth-card {
+        width: 94vw;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+        height: 90vh !important;
+    }
+
+    #authScreen .auth-divider {
+        display: none;
+    }
+
+    #authScreen .auth-brand {
+        height: auto;
+        min-height: 220px;
+        padding: 25px;
+    }
+
+    #authScreen .auth-content {
+        padding: 25px;
+    }
+}
+
+#authScreen .auth-content {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+}
+
+/* centraliza o formulário só quando sobra espaço; se não sobra, começa do topo */
+#authScreen .auth-content > form {
+    margin-top: auto;
+    margin-bottom: auto;
+}

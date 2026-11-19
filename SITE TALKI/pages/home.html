@@ -1,0 +1,73 @@
+<section class="page" id="home">
+
+    <div class="home-banner" style="
+      width: 100%;
+      margin: 0 auto 25px;
+      overflow: hidden;
+      border-radius: 12px;
+    ">
+      <img src="img/bannerHome.png"
+           alt="Bem-vindo ao TALKI"
+           style="
+             display: block;
+             width: 100%;
+             height: auto;
+             object-fit: contain;
+           ">
+    </div>
+
+    <div class="home-grid">
+
+      <div class="card">
+        <h2><i class="i" data-i="user"></i>Meu Perfil</h2>
+        <p class="small">Defina seu nome, os idiomas que fala (com o seu nível) e uma bio para os outros te conhecerem.</p>
+        <a class="btn alt" href="#perfil">Editar perfil</a>
+      </div>
+
+      <div class="card">
+        <h2><i class="i" data-i="chat"></i>Espaço de Socialização</h2>
+        <p class="small">Um ambiente internacional para conversas linguísticas. Veja quem está no local agora.</p>
+        <a class="btn alt" href="#espaco">Ver espaço</a>
+      </div>
+
+      <div class="card">
+        <h2><i class="i" data-i="cal"></i>Encontros</h2>
+        <p class="small">Encontros trimestrais com coffee break em espanhol, francês, inglês e português.</p>
+        <a class="btn alt" href="#encontros">Ver datas</a>
+      </div>
+
+      <div class="card">
+        <h2><i class="i" data-i="target"></i>TalkiGO</h2>
+        <p class="small">Atividades curtas, em três níveis, para praticar o idioma que você escolher.</p>
+        <a class="btn alt" href="#talkigo">Praticar</a>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <h2><i class="i" data-i="star"></i>Feedbacks</h2>
+      <p class="sub" style="margin-bottom:0">Conte como foi sua experiência no TALKI.</p>
+
+      <div id="fbform">
+        <label>Nome</label>
+        <input class="nm" id="fbname" placeholder="Seu nome" autocomplete="name">
+
+        <label>Sobre o que é seu feedback?</label>
+        <select id="fbtopic">
+          <option>Espaço de Socialização</option>
+          <option>Encontros</option>
+          <option>TalkiGO</option>
+          <option>Site em geral</option>
+        </select>
+
+        <label>Mensagem</label>
+        <textarea id="fbmsg" placeholder="Escreva aqui sua sugestão ou elogio"></textarea>
+
+        <p class="err" id="fberr"></p>
+        <button class="btn" onclick="sendFb()"><i class="i" data-i="send"></i>Enviar feedback</button>
+      </div>
+
+      <p class="okmsg" id="fbok" style="display:none"></p>
+    </div>
+
+  </section>

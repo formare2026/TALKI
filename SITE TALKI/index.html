@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TALKI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+  <link rel="stylesheet" href="css/pages/socializacao.css">
+  <link rel="stylesheet" href="css/pages/encontros.css">
+  <link rel="stylesheet" href="css/pages/talkigo.css">
+  <link rel="stylesheet" href="css/pages/perfil.css">
+  <link rel="stylesheet" href="css/pages/login.css">
+</head>
+<body>
+  <div id="authMount"></div>
+  <div id="appShell">
+    <aside class="sidebar">
+
+  <div class="side-brand">
+    <a href="#home" class="logo" aria-label="Ir para o início" onclick="if(!location.hash||location.hash==='#home')route()">
+      <img
+        id="talkiLogo"
+        src="img/logoTOP.png"
+        data-logo-light="img/logoTOP.png"
+        data-logo-dark="img/LOGOESCURO.png"
+        alt="Logo TALKI"
+      >
+    </a>
+  </div>
+
+  <nav class="side-nav" aria-label="Navegação principal">
+
+    <span class="side-label">MENU PRINCIPAL</span>
+
+    <a href="#home" data-p="home">
+      <i class="i" data-i="home"></i>
+      <span class="full">Home</span>
+      <span class="short">Home</span>
+    </a>
+
+    <a href="#espaco" data-p="espaco">
+      <i class="i" data-i="chat"></i>
+      <span class="full">Socialização</span>
+      <span class="short">Socialização</span>
+    </a>
+
+    <a href="#encontros" data-p="encontros">
+      <i class="i" data-i="cal"></i>
+      <span class="full">Encontros</span>
+      <span class="short">Encontros</span>
+    </a>
+
+    <a href="#talkigo" data-p="talkigo">
+      <i class="i" data-i="target"></i>
+      <span class="full">TalkiGO</span>
+      <span class="short">TalkiGO</span>
+    </a>
+
+    <span class="side-label account-label">MINHA CONTA</span>
+
+    <div class="account-link-row">
+      <a href="#perfil" data-p="perfil">
+        <i class="i" data-i="user"></i>
+        <span class="full">Meu Perfil</span>
+        <span class="short">Perfil</span>
+      </a>
+
+      <button type="button" class="logout-nav" onclick="logoutTalki()" aria-label="Sair da conta" title="Sair da conta">
+        <i class="i" data-i="logout"></i>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- USUÁRIO E BOTÃO DE TEMA -->
+  <div class="side-bottom">
+    <div class="side-user" id="sideUser">
+
+      <div class="side-avatar" id="sideAvatar">T</div>
+
+      <div class="side-user-info">
+        <strong id="sideName">Visitante</strong>
+        <span>Minha conta</span>
+      </div>
+
+      <button type="button" class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Ativar modo escuro" title="Alternar tema">
+        <i class="i" id="themeIcon" data-i="moon"></i>
+      </button>
+
+    </div>
+  </div>
+
+</aside>
+    <main id="pagesMount"></main>
+  </div>
+  <script>
+    // Carrega os fragmentos das páginas antes de iniciar o JavaScript principal.
+    (async function(){
+      const pages = ['home','espaco','encontros','talkigo','perfil'];
+      const auth = await fetch('pages/login.html').then(r => {
+        if(!r.ok) throw new Error('Não foi possível carregar a tela de login.');
+        return r.text();
+      });
+      document.getElementById('authMount').innerHTML = auth;
+      const fragments = await Promise.all(pages.map(async page => {
+        const response = await fetch('pages/' + page + '.html');
+        if(!response.ok) throw new Error('Não foi possível carregar a página: ' + page);
+        return response.text();
+      }));
+      document.getElementById('pagesMount').innerHTML = fragments.join('\n');
+      const app = document.createElement('script');
+      app.src = 'js/app.js';
+      document.body.appendChild(app);
+    })().catch(error => {
+      document.body.innerHTML = '<p style="padding:24px;font-family:Arial">Erro ao carregar o TALKI: ' + error.message + '<br>Abra o projeto usando Live Server ou outro servidor local.</p>';
+    });
+  </script>
+
+
+<div class="modal-overlay" id="logoutModal">
+  <div class="modal-card">
+    <div class="modal-icon">
+      <i class="i" data-i="logout"></i>
+    </div>
+
+    <h2>Sair da conta?</h2>
+
+    <p>Tem certeza de que deseja sair da sua conta?</p>
+
+    <div class="modal-actions">
+      <button class="btn alt" onclick="cancelLogout()">
+        Cancelar
+      </button>
+
+      <button class="btn" onclick="confirmLogout()">
+        Sim, sair
+      </button>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
